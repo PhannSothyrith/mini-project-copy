@@ -1,0 +1,8 @@
+rootProject.name = 'spring-mini-project-2'
+include 'eureka-server'
+include 'api-gateway'
+include 'config-server'
+include 'task-service'
+include 'keycloak-admin-client'
+include 'common'
+

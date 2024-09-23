@@ -1,0 +1,39 @@
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/realm-2
+          jwk-set-uri: http://localhost:8080/realms/realm-2/protocol/openid-connect/certs
+  application:
+    name: keycloak-admin-client
+server:
+  port: 8180
+keycloak:
+  realm: realm-2
+  resource: client11
+#  auth-server-url: http://localhost:8080/auth/ #docker container
+  auth-server-url: http://localhost:8080/
+  credentials:
+    username: 'Viseth'
+    password: 'Vi-222777'
+    client-id: client11
+    secret: 6scaeZzZ24UTDFDTPqrche49u8ud5GPP
+    provider: secret
+#config swagger
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: client11
+      client-secret: 6scaeZzZ24UTDFDTPqrche49u8ud5GPP
+      realm: realm-2
+    tags-sorter: alpha
+logging:
+  level:
+    org.springframework.web: debug
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
